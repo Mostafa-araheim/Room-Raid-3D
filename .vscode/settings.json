@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Room Raid 3D.sln"
+    "dotnet.defaultSolution": "Room-Raid-3D.sln"
 }
