@@ -205,7 +205,6 @@ public class GunSystem : MonoBehaviour
             weaponSound.Play();
 
             //GameObject casing = Instantiate(bulletCasing, casinglocation.position, casinglocation.rotation);
-            //Debug.Log("is target null?" + target is null);
 
             //Destroy(casing, 2f);
 

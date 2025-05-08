@@ -79302,7 +79302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2548429174199720593, guid: 98a22876408411b4eb06739655fafab2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2888503325447864363, guid: 98a22876408411b4eb06739655fafab2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79446,17 +79446,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeFBXFile
       objectReference: {fileID: 0}
+    - target: {fileID: 315974667987740707, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092476839804154521, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.350064
+      objectReference: {fileID: 0}
     - target: {fileID: 1092476839804154521, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.812
+      value: -0.966
       objectReference: {fileID: 0}
     - target: {fileID: 1092476839804154521, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36
+      value: 0.376
       objectReference: {fileID: 0}
     - target: {fileID: 1092476839804154521, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.256
+      value: 0.259
       objectReference: {fileID: 0}
     - target: {fileID: 1092476839804154521, guid: 578d7067341eb5e48b5b6c23c4d94706, type: 3}
       propertyPath: m_LocalRotation.w
