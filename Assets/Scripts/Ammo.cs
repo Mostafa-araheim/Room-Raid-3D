@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    public GameObject theAmmo;
+    private GameObject theAmmo;
     public GameObject weaponOB;
-    public GameObject pickUpText;
 
     public AudioSource pickUpSound;
 
     public int ammoBoxAmount;
 
     public bool inreach;
-   
+
+    private void Start()
+    {
+        theAmmo = this.gameObject; 
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
             inreach = true;
-            pickUpText.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
             inreach = false;
-            pickUpText.SetActive(false);
         }
     }
 
@@ -37,14 +38,12 @@ public class Ammo : MonoBehaviour
 
     void Update()
     {
-        if(inreach && Input.GetButtonDown("Interact"))
+        if(inreach && Input.GetKeyDown(KeyCode.E))
         {
             weaponOB.GetComponent<GunSystem>().ammoCache += ammoBoxAmount;
-            pickUpText.SetActive(false);
+            //pickUpText.SetActive(false);
             theAmmo.SetActive(false);
             pickUpSound.Play();
         }
-
-
     }
 }
