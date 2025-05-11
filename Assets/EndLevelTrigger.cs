@@ -7,7 +7,7 @@ public class EndLevelTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //gameManager.LoadNextLevel();
+
             gameManager.completeLevel();
         }
     }

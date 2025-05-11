@@ -1,18 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
     public void LoadNextLevel()
     {
-        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        if (nextSceneIndex < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
+
+        // Check if there's a next scene
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            Debug.Log("No more levels to load.");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
         }
     }
 }
