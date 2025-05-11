@@ -1,50 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    private GameObject player;
-    private float damageRange;
-    public float damageSet = 25f;
-    public float minDamage;
-    public float maxDamage;
+    [SerializeField] private bool randomDamage = false; // Toggle random damage
+    [SerializeField] private float damageSet = 25f; // Fixed damage value
+    [SerializeField] private float minDamage = 10f; // Random damage min
+    [SerializeField] private float maxDamage = 30f; // Random damage max
 
-    public bool randomDamage;
-    public bool setDamage;
-
-    public AudioSource[] sounds;
-    private AudioSource source;
-
+    [SerializeField] private AudioClip[] sounds; // Audio clips for attack
+    private GameObject player; // Reference to player
+    private Animator animator; // Optional: for attack animations
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerHealth>().gameObject;
-        damageRange = Random.Range(minDamage, maxDamage);
-        source = player.GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player"); // Consistent player reference
+        animator = GetComponent<Animator>(); // Optional: for animations
     }
 
-    void OnTriggerEnter(Collider other)
+    // Called by EnemyAiTutorial to deal damage to player
+    public void DealDamageToPlayer()
     {
-        if (other.gameObject.tag == "Player" && randomDamage)
+        // Calculate damage
+        float damage = randomDamage ? Random.Range(minDamage, maxDamage) : damageSet;
+
+        // Apply damage to player
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
         {
-            player.GetComponent<PlayerHealth>().health -= damageRange;
-            source = sounds[Random.Range(0, sounds.Length)];
-            source.Play();
+            playerHealth.health -= damage;
+
+            // Play random sound
+            if (sounds.Length > 0)
+            {
+                AudioSource.PlayClipAtPoint(sounds[Random.Range(0, sounds.Length)], transform.position);
+            }
+
+            // Optional: Play attack animation
+            if (animator != null)
+                animator.SetTrigger("Attack");
         }
-
-        if (other.gameObject.tag == "Player" && setDamage)
-        {
-            player.GetComponent<PlayerHealth>().health -= damageSet;
-            source = sounds[Random.Range(0, sounds.Length)];
-            source.Play();
-        }
-
-    }
-
-
-    void Update()
-    {
-        
     }
 }
