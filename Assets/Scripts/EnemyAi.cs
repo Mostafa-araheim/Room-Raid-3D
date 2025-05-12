@@ -20,24 +20,29 @@ public class EnemyAiTutorial : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    private EnemyDamage enemyDamage; // Reference to damage script
-    private Target target; // Reference to health script
+    // Animation and movement sync
+    [SerializeField] private float walkSpeed = 2f;
+    [SerializeField] private float attackAnimationDuration = 1.2f; // Duration of attack animation
+
+    private EnemyDamage enemyDamage;
+    private Target target;
+    private Animator animator;
 
     private void Awake()
     {
-        // Find player consistently using tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         enemyDamage = GetComponent<EnemyDamage>();
         target = GetComponent<Target>();
+        animator = GetComponent<Animator>();
+
+        agent.speed = walkSpeed;
     }
 
     private void Update()
     {
-        // Stop AI if enemy is dead (health <= 0)
-        if (target.health <= 0) return;
+        if (target.health <= 0 || animator.GetBool("IsDead")) return; // Stop AI when dead
 
-        // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -51,18 +56,25 @@ public class EnemyAiTutorial : MonoBehaviour
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
             agent.SetDestination(walkPoint);
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsAttacking", false);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsAttacking", false);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
 
     private void SearchWalkPoint()
     {
-        // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -75,27 +87,34 @@ public class EnemyAiTutorial : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        animator.SetBool("IsWalking", true);
+        animator.SetBool("IsAttacking", false);
     }
 
     private void AttackPlayer()
     {
-        // Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-
-        // Face the player
         transform.LookAt(player);
+
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsAttacking", true);
 
         if (!alreadyAttacked)
         {
-            // Trigger damage via EnemyDamage
             enemyDamage.DealDamageToPlayer();
-
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke(nameof(ResetAttack), attackAnimationDuration);
+            Invoke(nameof(AllowNextAttack), timeBetweenAttacks);
         }
     }
 
     private void ResetAttack()
+    {
+        animator.SetBool("IsAttacking", false);
+        animator.SetBool("IsWalking", true); // Return to walking after attack
+    }
+
+    private void AllowNextAttack()
     {
         alreadyAttacked = false;
     }
