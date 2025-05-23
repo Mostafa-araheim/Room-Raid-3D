@@ -20,29 +20,29 @@ public class HealthPickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
             inReach = true;
-            pickUpText.SetActive(true);
+            //pickUpText.SetActive(true);
 
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
             inReach = false;
-            pickUpText.SetActive(false);
-            cannotPickUpText.SetActive(false);
+            //pickUpText.SetActive(false);
+            //cannotPickUpText.SetActive(false);
         }
     }
 
     void Start()
     {
         currentHealth = player.GetComponent<PlayerHealth>().health;
-        cannotPickUpText.SetActive(false);
-        pickUpText.SetActive(false);
+        //cannotPickUpText.SetActive(false);
+        //pickUpText.SetActive(false);
 
         screenFX.SetActive(false);
 
@@ -51,7 +51,7 @@ public class HealthPickUp : MonoBehaviour
 
     void Update()
     {
-        if(inReach && Input.GetButtonDown("Interact") && player.GetComponent<PlayerHealth>().health < 100)
+        if(inReach && Input.GetKeyDown(KeyCode.E) && player.GetComponent<PlayerHealth>().health < 100)
         {
             inReach = false;
             healthPickUpSound.Play();
@@ -59,14 +59,14 @@ public class HealthPickUp : MonoBehaviour
             screenFX.SetActive(true);
             pickUpOB.GetComponent<BoxCollider>().enabled = false;
             pickUpOB.GetComponent<MeshRenderer>().enabled = false;
-            pickUpText.SetActive(false);
+            //pickUpText.SetActive(false);
             StartCoroutine(TurnScreenFXOFF());
         }
 
-        else if (inReach && Input.GetButtonDown("Interact") && player.GetComponent<PlayerHealth>().health == 100)
+        else if (inReach && Input.GetKeyDown(KeyCode.E) && player.GetComponent<PlayerHealth>().health == 100)
         {
-            pickUpText.SetActive(false);
-            cannotPickUpText.SetActive(true);
+            //pickUpText.SetActive(false);
+            //cannotPickUpText.SetActive(true);
         }
 
     }

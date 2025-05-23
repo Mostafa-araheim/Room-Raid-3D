@@ -1099,7 +1099,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.51
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hud: {fileID: 6266179232479684478}
   inv: {fileID: 5678353552667767484}
+  deathScreen: {fileID: 0}
   health: 100
 --- !u!82 &836553819140081091
 AudioSource:

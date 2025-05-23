@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8852764986131699460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 17.497591
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 17.497591
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 17.497591
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      propertyPath: m_Name
+      value: MedkitFBX (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4893370017144560650}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3062389240513249077}
+  m_SourcePrefab: {fileID: 100100000, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+--- !u!1 &8510183750307965525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 53539eca48ad12043b19c96c5c66a4d8, type: 3}
+  m_PrefabInstance: {fileID: 8852764986131699460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4893370017144560650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510183750307965525}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11, y: 0.09, z: 0.07}
+  m_Center: {x: 0, y: 0.005064028, z: 3.5982085e-17}
+--- !u!114 &3062389240513249077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510183750307965525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1be4a5096856e48a58f333df54f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpOB: {fileID: 8510183750307965525}
+  player: {fileID: 0}
+  pickUpText: {fileID: 0}
+  cannotPickUpText: {fileID: 0}
+  addHealth: 25
+  healthPickUpSound: {fileID: 0}
+  screenFX: {fileID: 0}
+  inReach: 0

@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public GameObject hud;
     public GameObject inv;
-    //public GameObject deathScreen;
+    public GameObject deathScreen;
     private GameObject player;
     private GameObject camera; 
 
@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        //deathScreen.SetActive(false);
+        deathScreen.SetActive(false);
         player = this.gameObject;
         camera = FindFirstObjectByType<MouseLook>().gameObject;
     }
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             hud.SetActive(false);
             inv.SetActive(false);
-            //deathScreen.SetActive(true);
+            deathScreen.SetActive(true);
         }
 
         if (health > 100)

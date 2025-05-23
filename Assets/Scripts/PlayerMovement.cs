@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 12f;
     public float sprintSpeed = 18f;
     public float jumpHeight = 3f;
+    public PlayerHealth health;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -30,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+        }
+        if (this.transform.position.y < -1f)
+        {
+            health.health = 0;
+            //health.deathScreen.SetActive(true);
         }
 
 
